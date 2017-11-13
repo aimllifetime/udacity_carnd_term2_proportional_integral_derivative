@@ -10,7 +10,7 @@ After handful of iteration, the final parameters is setllted at: [0.17 0.0016 2.
 
 The portion of video is here:
 
-[![pid_drive video]](./output/pid_drive.mov)
+[pid_drive video](./output/pid_drive.mov)
 
 
 ## Basic Build Instructions
