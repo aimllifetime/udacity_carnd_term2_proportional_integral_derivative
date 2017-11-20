@@ -8,8 +8,11 @@ This project is to use the Proportional-Integral-Derivative controller to fine t
 PID controller has the member method to update the Error for each PID component:
 
 void PID::UpdateError(double cte) {
+
   d_error = cte - p_error;
+  
   p_error = cte;
+  
   i_error = i_error + cte;
 
 }
