@@ -25,9 +25,13 @@ if the PID just has the P component, the data shows that the car will have error
 
 [kp_only](./output/Kp_only.mov)
 
-Now, in order to avoid the overshoot and marginal stability of P component only, the derivative component is added, which is temporal error measurement against last timestamp. The effect of derivative error is to counter the steering so overshoot is reduced. when the derivative becomes smaller, the steering angle is depends on proportional error again so it keeps close to the center lane. Following videos shows the two components are used, Kp and Kd, i.e. [0.17 0.0 1.5]. At least now the car can remains on the track and alsmot finish one lap.
+Now, in order to avoid the overshoot and marginal stability of P component only, the derivative component is added, which is temporal error measurement against rate of change error. The effect of derivative error is to counter the steering so overshoot is reduced. when the derivative becomes smaller, the steering angle  depends on proportional error again so it keeps close to the center lane. Following videos shows the two components are used, Kp and Kd, i.e. [0.17 0.0 1.5]. At least now the car can remains on the track and alsmot finish one lap.
 
 [kp_kd_only](./output/Kp_Kd_only.mov)
+
+Every system has the system bias where not all paramters are perfect against design definition. The tiny bias is needed to be modeled in the system since this small error can accumulate and become large error in the model behavior over long period time. Here the integral component is used to emulated the tiny angle offset of steering given perfect product. Since this is very tiny error offset, the efficient is not expected to be very big compared to other two Kp and Kd, it is more 100x smaller than other two. The following video shows the additional Ki is added to control system, i.e. [Kp Ki Kd] = [0.17 0.0016 1.9]
+
+[Kp_Ki_Kd](./output/Kp_Ki_Kd.mov)
 
 
 
