@@ -44,6 +44,8 @@ I start with PID [0.5 0 0.5] and sooner realized that car veers off the road bef
 
 After handful of iteration, the final parameters is setllted at: [0.17 0.0016 2.1]
 
+A seperate PID is used to throttle the speed at 35MPH.
+
 The portion of video is here:
 
 [pid_drive video](./output/pid_drive.mov)
