@@ -25,11 +25,11 @@ The integral error equals to all cte error cumulated so far, i.e. i_error = i_er
 the overall error is calculated in following formula in TotalError method:
     -(Kp * p_error + Ki * i_error + Kd * d_error)
 
-if the PID just has the P component, the data shows that the car will have error, i.e. overshoot and then oscilate along center of lane. one the error keeps becoming bigger, the car veers off track and loses control completely. Following short video shows the [Kp, Ki, Kd] = [0.17 0.0 0.0]. the car can not even reach first turn of road.
+if the PID just has the P component, the data shows that the car will have error, i.e. overshoot and then oscilate along center of lane. one the error keeps becoming bigger, the car veers off track and loses control completely. Following short video shows the [Kp, Ki, Kd] = [0.17 0.0 0.0]. the car can not even reach first turn of road. This is expected that Kp only control system is not good enough to avoid the oscilation.
 
 [kp_only](./output/Kp_only.mov)
 
-Now, in order to avoid the overshoot and marginal stability of P component only, the derivative component is added, which is temporal error measurement against rate of change error. The effect of derivative error is to counter the steering so overshoot is reduced. when the derivative becomes smaller, the steering angle  depends on proportional error again so it keeps close to the center lane. Following videos shows the two components are used, Kp and Kd, i.e. [0.17 0.0 1.5]. At least now the car can remains on the track and alsmot finish one lap.
+Now, in order to avoid the overshoot and marginal stability of P component only, the derivative component is added, which is temporal error measurement against rate of change error. The effect of derivative error is to counter the steering so overshoot is reduced. when the derivative becomes smaller, the steering angle  depends on proportional error again so it keeps close to the center lane. Following videos shows the two components are used, Kp and Kd, i.e. [0.17 0.0 1.5]. At least now the car can remains on the track and alsmot finish one lap. Adding the Kd is expected to avoid the oscilation.
 
 [kp_kd_only](./output/Kp_Kd_only.mov)
 
